@@ -1,4 +1,4 @@
-![Real++ Logo](assets/realpp_rpp.png)
+![Real++ Logo](assets/rpp.png)
 # Real++ Interpreter
 
 `Real++` is a simple, high-level, interpreted language for creating graphical user interface (GUI) applications. It's designed to be easy to learn and use, allowing developers to create simple applications without writing complex Python or Tkinter code.
