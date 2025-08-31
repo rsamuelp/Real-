@@ -1,70 +1,55 @@
-<img src="/rpp.png" width="200" height="150" alt="Alt text">
+<img src="/rpp.png" width="600px">
+
 # Real++ Interpreter
 
-`Real++` is a simple, high-level, interpreted language for creating graphical user interface (GUI) applications. It's designed to be easy to learn and use, allowing developers to create simple applications without writing complex Python or Tkinter code.
-
----
+Real++ is a simple, high-level, interpreted language for creating graphical user interface (GUI) applications. It's designed to be easy to learn and use, allowing developers to create simple applications without writing complex Python or Tkinter code.
 
 ## Features
 
-`Real++` provides a set of straightforward commands to define and control your application's windows and widgets.
+Real++ provides a set of straightforward commands to define and control your application's windows and widgets.
 
-### Core Commands
+## Core Commands
+
 | Command | Description | Example |
-| :--- | :--- | :--- |
-| **WINDOW** | Creates the main application window with a title. | `WINDOW "My App"` |
-| **SIZE** | Sets the dimensions of the window. | `SIZE 600x400` |
-| **ICON** | Sets the window's icon from a `.ico` file. | `ICON "realpp.ico"` |
-| **LABEL** | Creates a text label on the window. | `LABEL greeting_label "Hello!" x=20 y=20` |
-| **TEXTBOX** | Creates a text input field. | `TEXTBOX name_entry x=50 y=50` |
-| **BUTTON** | Creates a clickable button. | `BUTTON my_btn "Click Me" x=100 y=100` |
-| **VAR** | Defines a variable. | `VAR my_var = "initial value"` |
-| **SET** | Updates the value of a variable or a widget property. | `SET my_var = "new value"` |
-| **IF/ELSE** | Standard conditional logic. | `IF my_var == "a"` |
-| **PRINT** | Outputs text to the terminal. | `PRINT "Debug message"` |
-| **IMG** | Displays an image on the window. | `IMG my_logo "logo.png" x=200 y=20` |
-| **BIND** | Links a code block to a specific event on a widget. | `BIND my_btn <Button-1>` |
-
----
+|---------|-------------|---------|
+| `WINDOW` | Creates the main application window with a title. | `WINDOW "My App"` |
+| `SIZE` | Sets the dimensions of the window. | `SIZE 600x400` |
+| `ICON` | Sets the window's icon from a `.ico` file. | `ICON "realpp.ico"` |
+| `LABEL` | Creates a text label on the window. | `LABEL greeting_label "Hello!" x=20 y=20` |
+| `TEXTBOX` | Creates a text input field. | `TEXTBOX name_entry x=50 y=50` |
+| `BUTTON` | Creates a clickable button. | `BUTTON my_btn "Click Me" x=100 y=100` |
+| `VAR` | Defines a variable. | `VAR my_var = "initial value"` |
+| `SET` | Updates the value of a variable or a widget property. | `SET my_var = "new value"` |
+| `IF/ELSE` | Standard conditional logic. | `IF my_var == "a"` |
+| `PRINT` | Outputs text to the terminal. | `PRINT "Debug message"` |
+| `IMG` | Displays an image on the window. | `IMG my_logo "logo.png" x=200 y=20` |
+| `BIND` | Links a code block to a specific event on a widget. | `BIND my_btn <Button-1>` |
 
 ## Example Code
 
-Here is a full `Real++` example that demonstrates many of the language's features.
+Here is a full Real++ example demonstrating many of the language's features:
 
+```rpp
 WINDOW "Feature Showcase"
 ICON "realpp.ico"
 SIZE 600x400
 
-A red label with a bold font and a sunken border
+# A red label with a bold font and a sunken border
 LABEL my_label "Click me!" x=20 y=20 fg="red" font="Arial 16 bold" borderwidth=2 relief="sunken"
 
-A button with a green background
+# A button with a green background
 BUTTON my_button "Change Label" x=20 y=70 bg="green" width=150
 SET my_label.fg = "blue"
 SET my_label.value = "Color Changed!"
 PRINT "Label color changed to blue."
 
-A bind command that changes the label on a left-click
+# A bind command that changes the label on a left-click
 BIND my_label <Button-1>
 SET my_label.fg = "purple"
 SET my_label.value = "Clicked!"
 
-A textbox with a lightblue background
+# A textbox with a lightblue background
 TEXTBOX my_text x=20 y=120 bg="lightblue"
 
-An image added to the window (must exist in the same directory)
+# An image added to the window (must exist in the same directory)
 IMG my_image "logo.png" x=300 y=20
-
-
----
-
-## Troubleshooting
-
-- **`TclError: couldn't open "image.png": no such file or directory`**: This is a runtime error. It means the `Real++` interpreter can't find the image file. Ensure the image is in the same directory as your `Realpp.py` file.
-- **Icon doesn't show up on the window**: Ensure your icon file is a valid `.ico` format and that you've used the `ICON` command in your `.rpp` script.
-
----
-
-## Contributing
-
-Contributions are welcome! If you find a bug or have an idea for a new feature, please ope
