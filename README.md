@@ -1,4 +1,4 @@
-<img src="/rpp.png" width="600px">
+<img src="/rpp.png" width="200px">
 
 # Real++ Interpreter
 
