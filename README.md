@@ -199,3 +199,7 @@ END
 
 This covers **most of Real++’s core features**: GUI elements, variables, loops, conditions, and dynamic updates.
 Thanks for testing Real++ out!
+## License
+
+- The Real++ source code is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).  
+- The Real++ documentation is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).  
