@@ -1,3 +1,5 @@
+
+<img src="/rpp.png" width="200">
 # 🚀 Real++ Language Documentation
 
 **Version:** 1.0
