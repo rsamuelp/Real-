@@ -97,13 +97,11 @@ Make sure it’s a valid .ico file and that you used the ICON command.
 Pull requests & feature suggestions welcome! Open an issue, share your ideas, or just start coding in Real++ and show off your creations 🚀
 
 ## 🎊 Real++ is Officially a Programming Language 🎉
-//oh so you're reading the code now?
 
 Made by @rsamuelp
  🐐
 
 
----
 
 That version turns your README into a **proper GitHub release page** — intro, features, commands table, example app, quick start, troubleshooting, contributing, and a hype outro.  
 
