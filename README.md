@@ -1,109 +1,199 @@
-<img src="/rpp.png" width="200px">
+# 🚀 Real++ Language Documentation
 
-# 🚀 Real++ Interpreter  
+**Version:** 1.0
+**Author:** rsamuelp aka. realsamuelp
 
-🎉 **Real++ v1.0 is here** — a brand-new, high-level interpreted language for building **GUI apps** with simple, readable commands. No messy Python boilerplate, no Tkinter headaches. Just type, run, and flex your creation.  
-
----
-
-## ✨ Features
-
-- 🪟 **Window Management** – build apps with windows, icons, labels, and buttons  
-- 🎨 **Custom Styling** – colors, fonts, borders, and more  
-- 🖼️ **Image Support** – add images and icons directly  
-- ⚡ **Events & Logic** – `BIND`, `IF/ELSE`, variables, and `SET` for interactivity  
-- 🛠️ **Beginner Friendly** – learn it in minutes, build something in seconds  
+Real++ is a high-level, interpreted language designed for rapid GUI app development. It’s simple, intuitive, and comes with built-in GUI components like windows, labels, buttons, textboxes, and images.
 
 ---
 
-## 🧩 Core Commands
+## 🖥️ 1. Creating a Window
 
-| Command   | Description | Example |
-|-----------|-------------|---------|
-| `WINDOW`  | Creates the main application window with a title. | `WINDOW "My App"` |
-| `SIZE`    | Sets the dimensions of the window. | `SIZE 600x400` |
-| `ICON`    | Sets the window's icon from a `.ico` file. | `ICON "realpp.ico"` |
-| `LABEL`   | Creates a text label on the window. | `LABEL greeting "Hello!" x=20 y=20` |
-| `TEXTBOX` | Creates a text input field. | `TEXTBOX name_entry x=50 y=50` |
-| `BUTTON`  | Creates a clickable button. | `BUTTON my_btn "Click Me" x=100 y=100` |
-| `VAR`     | Defines a variable. | `VAR my_var = "initial value"` |
-| `SET`     | Updates a variable or widget property. | `SET my_var = "new value"` |
-| `IF/ELSE` | Conditional logic. | `IF my_var == "a"` |
-| `PRINT`   | Prints text to the terminal. | `PRINT "Debug message"` |
-| `IMG`     | Displays an image. | `IMG logo "logo.png" x=200 y=20` |
-| `BIND`    | Attaches code to widget events. | `BIND my_btn <Button-1>` |
-
----
-
-## 🚀 Example App (Full Demo)
-
-```rpp
-WINDOW "Feature Showcase"
-ICON "realpp.ico"
-SIZE 600x400
-
-# A red label with bold font & sunken border
-LABEL my_label "Click me!" x=20 y=20 fg="red" font="Arial 16 bold" borderwidth=2 relief="sunken"
-
-# A button that changes the label color
-BUTTON my_button "Change Label" x=20 y=70 bg="green" width=150
-SET my_label.fg = "blue"
-SET my_label.value = "Color Changed!"
-PRINT "Label color changed to blue."
-
-# Bind: label reacts on left-click
-BIND my_label <Button-1>
-SET my_label.fg = "purple"
-SET my_label.value = "Clicked!"
-
-# A textbox
-TEXTBOX my_text x=20 y=120 bg="lightblue"
-
-# Display an image
-IMG my_image "logo.png" x=300 y=20
 ```
-##⚡ Quick Start
+WINDOW <id> size="<width>x<height>" bgcolor="<hex_color>" title="<window_title>"
+```
 
-Download Real++ → Latest Release
+* **id**: Identifier for the window.
+* **size**: Dimensions (width x height).
+* **bgcolor**: Background color in hex.
+* **title**: (Optional) Window title.
 
-Unzip it into a folder
+**Example:**
 
-Create a new file: app.rpp
+```
+WINDOW main size="400x300" bgcolor="#2C3E50" title="My App"
+```
 
-Add this code:
+---
 
-WINDOW "Hello Real++!"
-SIZE 400x200
-LABEL greeting "It works!" x=100 y=80 fg="blue"
+## 🔤 2. Labels
 
+```
+LABEL <id> "<text>" x=<x_pos> y=<y_pos> fg="<text_color>" bg="<bg_color>"
+```
 
-Run it with:
+* **id**: Unique identifier.
+* **text**: Displayed text.
+* **x, y**: Position in pixels.
+* **fg**: Text color.
+* **bg**: Background color.
 
-python Realpp.py app.rpp
+**Example:**
 
+```
+LABEL lblHello "Enter your name:" x=20 y=20 fg="#ECF0F1" bg="#2C3E50"
+```
 
-🎉 Congrats, you just ran your first Real++ program!
+---
 
-## 🛠️ Troubleshooting
+## ⌨️ 3. Textboxes
 
-TclError: couldn't open "image.png"
-The image file doesn’t exist in your directory. Place it next to your .rpp file.
+```
+TEXTBOX <id> x=<x_pos> y=<y_pos> width=<width> height=<height> placeholder="<text>"
+```
 
-Icon doesn’t show
-Make sure it’s a valid .ico file and that you used the ICON command.
+* **placeholder**: Text shown when empty.
+* Access input using `.value`.
 
-## 🤝 Contributing
+**Example:**
 
-Pull requests & feature suggestions welcome! Open an issue, share your ideas, or just start coding in Real++ and show off your creations 🚀
+```
+TEXTBOX txtName x=20 y=50 width=200 placeholder="Your name here"
+```
 
-## 🎊 Real++ is Officially a Programming Language 🎉
+---
 
-Made by @rsamuelp
- 🐐
+## 🔘 4. Buttons
 
+```
+BUTTON <id> "<text>" x=<x_pos> y=<y_pos>
+    <commands>
+END
+```
 
+* Click event runs the commands inside the button block.
+* Commands include `PRINT`, `SET`, arithmetic, or GUI updates.
 
-That version turns your README into a **proper GitHub release page** — intro, features, commands table, example app, quick start, troubleshooting, contributing, and a hype outro.  
+**Example:**
 
-👉 Do you want me to also cook up a **“More Examples” gallery** (mini Hello World, counter app, textbox demo, etc.) for the README so people instantly see the range?
+```
+BUTTON btnGreet "Greet" x=20 y=90
+    PRINT "Hello, " & txtName.value & "!"
+END
+```
 
+---
+
+## 🖼️ 5. Images
+
+```
+IMG <id> "<file_path>" x=<x_pos> y=<y_pos> width=<width> height=<height>
+```
+
+* **file\_path**: Relative path to the image.
+* Supports PNG, JPG.
+
+**Example:**
+
+```
+IMG imgLogo "test.png" x=250 y=20 width=100 height=100
+```
+
+---
+
+## 🟰 6. Dynamic Updates
+
+* Change label or textbox values dynamically using `SET`.
+
+```
+SET <id>.text "<new_text>"
+```
+
+**Example:**
+
+```
+BUTTON btnUpdate "Update Label" x=20 y=130
+    SET lblHello.text "Welcome, " & txtName.value
+END
+```
+
+---
+
+## 📊 7. Printing to Terminal
+
+```
+PRINT "<text>"  # Can include variables
+```
+
+**Example:**
+
+```
+PRINT "Hello, " & txtName.value
+```
+
+---
+
+## 📝 8. Variables & Expressions
+
+```
+VAR count = 0
+SET count = count + 1
+PRINT "Button clicked " & count & " times"
+```
+
+* `VAR` declares a variable.
+* `SET` updates variables or GUI elements.
+* `&` concatenates strings.
+
+---
+
+## ⚡ 9. Conditional Statements
+
+```
+IF count > 5
+    PRINT "High count!"
+ELSE
+    PRINT "Keep clicking..."
+END
+```
+
+---
+
+## 🔄 10. Loops
+
+```
+FOR i = 1 TO 5
+    PRINT "Iteration " & i
+END
+
+WHILE count < 10
+    PRINT count
+    SET count = count + 1
+END
+```
+
+---
+
+## 🎉 11. Full Example
+
+```
+WINDOW main size="400x300" bgcolor="#2C3E50" title="Real++ Demo"
+
+LABEL lblHello "Enter your name:" x=20 y=20 fg="#ECF0F1" bg="#2C3E50"
+TEXTBOX txtName x=20 y=50 width=200 placeholder="Your name here"
+
+BUTTON btnGreet "Greet" x=20 y=90
+    PRINT "Hello, " & txtName.value & "!"
+END
+
+IMG imgLogo "test.png" x=250 y=20 width=100 height=100
+
+BUTTON btnUpdate "Update Label" x=20 y=130
+    SET lblHello.text "Welcome, " & txtName.value
+END
+```
+
+---
+
+This covers **most of Real++’s core features**: GUI elements, variables, loops, conditions, and dynamic updates.
+Thanks for testing Real++ out!
