@@ -2,7 +2,7 @@
 <img src="/rpp.png" width="200">
 # 🚀 Real++ Language Documentation
 
-**Version:** 1.0
+**Version:** 1.0.5
 **Author:** rsamuelp aka. realsamuelp
 
 Real++ is a high-level, interpreted language designed for rapid GUI app development. It’s simple, intuitive, and comes with built-in GUI components like windows, labels, buttons, textboxes, and images.
